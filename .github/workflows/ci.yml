@@ -1,29 +1,27 @@
-name: CI pipeline
+name: CI Pipeline
 
-on: 
-  push: 
-    branches: ["main"]
-  
-  jobs: 
-    build: 
-      runs-on: ubuntu-latest
-      
-      steps: 
-        - name: Checkout Code
-          uses: actions/checkout@v4
+on:
+  push:
+    branches: [ "main" ]
 
-        - name: Set Up Node
-          uses: actions/setup-node@v4
-          with: 
-            node-version: 20
-          
-        - name: Install Dependencies
-          run : npm ci
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-        - name: Build App
-          run : npm run build 
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-        - name: Build Docker Image
-          run : docker build -t tic-tac-toe:ci .
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
+      - name: Install Dependencies
+        run: npm ci
 
+      - name: Build App
+        run: npm run build
+
+      - name: Build Docker Image
+        run: docker build -t tic-tac-toe:ci .
