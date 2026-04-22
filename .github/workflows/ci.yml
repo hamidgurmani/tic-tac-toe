@@ -36,4 +36,6 @@ jobs:
         uses: docker/scout-action@v1
         with: 
           image: tic-tac-toe:ci
-          command: quickview  
+          command: cves
+          only-severities: critical,high
+          exit-code: true 
