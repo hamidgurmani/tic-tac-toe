@@ -25,3 +25,9 @@ jobs:
 
       - name: Build Docker Image
         run: docker build -t tic-tac-toe:ci .
+        
+      - name: Scan Image(Docker Scout)
+        uses: docker/scout-action@v1
+        with: 
+          image: tic-tac-toe:ci
+          command: quickview  
