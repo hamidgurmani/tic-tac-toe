@@ -1,4 +1,10 @@
-# existing content stays, add terraform ignores
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Terraform
 .terraform/
 *.tfstate
 *.tfstate.backup
