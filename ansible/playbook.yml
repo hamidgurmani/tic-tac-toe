@@ -4,13 +4,13 @@
   become: true
   tasks:
     - name: Ensure nginx is installed
-      apt:
+      ansible.builtin.apt:
         name: nginx
         state: present
-        update_cache: yes
+        update_cache: true
 
     - name: Ensure nginx is running
-      service:
+      ansible.builtin.service:
         name: nginx
         state: started
         enabled: true
